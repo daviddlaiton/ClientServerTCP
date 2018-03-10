@@ -37,6 +37,7 @@ class Server {
                     dout.flush();
 
                     File f = new File(filename);
+                    System.out.println(f.getCanonicalPath());
                     FileInputStream fin = new FileInputStream(f);
                     long sz = (int) f.length();
 
@@ -63,8 +64,7 @@ class Server {
                 System.out.println("Send Complete");
                 dout.flush();
             } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("An error occured");
+                System.out.println("Connection closed");
             }
             din.close();
             s.close();
